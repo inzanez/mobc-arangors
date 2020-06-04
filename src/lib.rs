@@ -1,4 +1,4 @@
-use mobc::{Manager, Pool, async_trait};
+use mobc::{Manager, async_trait};
 use arangors::ClientError;
 
 #[derive(Clone, Debug)]

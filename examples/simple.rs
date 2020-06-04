@@ -1,10 +1,3 @@
-# mobc-arangors
-
-Implementation of async connection pool for ```arangors``` using ```mobc```. Currently only ```reqwest``` is support as a client.
-
-## Example
-
-```rust
 use mobc::Pool;
 use std::time::Instant;
 use mobc_arangors::ArangoDBConnectionManager;
@@ -37,4 +30,3 @@ async fn main() {
 
     println!("cost: {:?}", now.elapsed());
 }
-```
