@@ -7,6 +7,7 @@ pub struct ArangoDBConnectionManager {
     username: String,
     password: String,
     use_jwt: bool,
+    validate: bool,
 }
 
 impl ArangoDBConnectionManager {
@@ -15,12 +16,14 @@ impl ArangoDBConnectionManager {
         username: &str,
         password: &str,
         use_jwt: bool,
+        validate: bool,
     ) -> ArangoDBConnectionManager {
         ArangoDBConnectionManager {
             url: url.to_owned(),
             username: username.to_owned(),
             password: password.to_owned(),
             use_jwt,
+            validate,
         }
     }
 }
@@ -42,7 +45,10 @@ impl Manager for ArangoDBConnectionManager {
    }
 
    async fn check(&self, conn: Self::Connection) -> Result<Self::Connection, Self::Error> {
-       conn.validate_server().await?;
+       if self.validate {
+           conn.validate_server().await?;
+       }
+
        Ok(conn)
    }
 }
