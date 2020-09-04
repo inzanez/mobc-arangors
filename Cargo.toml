@@ -15,8 +15,8 @@ surf = [ "arangors/rocksdb", "arangors/surf_async" ]
 
 [dependencies]
 arangors = { version = ">=0.4.3", default-features=false, optional = true }
-mobc = "0.5.10"
-futures = "0.3"
+mobc = ">=0.5.10"
+futures = ">=0.3"
 
 [dev-dependencies]
 tokio = { version = "0.2.21", features = ["full"] }
