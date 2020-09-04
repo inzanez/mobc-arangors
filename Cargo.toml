@@ -1,6 +1,6 @@
 [package]
 name = "mobc-arangors"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Rafael Aggeler <r.aggeler@gmx.net>"]
 license = "MIT"
 description = "ArangoDB support for the async mobc connection pool"
@@ -8,9 +8,13 @@ repository = "https://github.com/inzanez/mobc-arangors"
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = [ "reqwest" ]
+reqwest = [ "arangors/rocksdb", "arangors/reqwest_async" ]
+surf = [ "arangors/rocksdb", "arangors/surf_async" ]
 
 [dependencies]
-arangors = "0.3"
+arangors = { version = ">=0.4.3", default-features=false, optional = true }
 mobc = "0.5.10"
 futures = "0.3"
 
