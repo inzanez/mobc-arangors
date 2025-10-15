@@ -14,9 +14,9 @@ reqwest = [ "arangors/rocksdb", "arangors/reqwest_async" ]
 surf = [ "arangors/rocksdb", "arangors/surf_async" ]
 
 [dependencies]
-arangors = { version = ">=0.4.3", default-features=false, optional = true }
-mobc = ">=0.5.10"
-futures = ">=0.3"
+arangors = { version = "0.6.0", default-features=false, optional = true }
+mobc = "0.9"
+futures = "0.3.31"
 
 [dev-dependencies]
 tokio = { version = "0.2.21", features = ["full"] }
